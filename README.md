@@ -14,6 +14,13 @@
 >
 > **Obs. 2:** Deve instalar em seu projeto o SpecFlow Extension for Visual Studio 2022. 
 
+# ExtentReports
+
+<div align="center">
+  ![ExtentReports](https://github.com/RicardoOliver/Automation_Web_Correios/assets/20847532/e7bfed3b-f55c-4c6d-84f4-f738d5d1fb9f)
+</div>
+
+
 
 
 
