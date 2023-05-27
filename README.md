@@ -3,7 +3,7 @@
 # Pré-requisitos
 
 - [git](https://git-scm.com/) (estou usando a versão -`v2.39.1` )
-- [nunit](https://nunit.org/download/ - `v3.13.2`)
+- [NUnit](https://nunit.org/download/ - `v3.13.2`)
 - [ExtentReports](https://www.extentreports.com/ - `v4.1.0`)
 - [Selenium.WebDriver](https://www.selenium.dev/ - `v4.9.1`)
 - [Selenium.Support](https://www.selenium.dev/ - `v4.9.1`)
