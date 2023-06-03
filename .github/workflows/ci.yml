@@ -1,0 +1,62 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+
+    - name: Restore NuGet packages
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --configuration Release
+
+    - name: Run tests
+      run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test_results.trx"
+
+    - name: Publish test results
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      with:
+        files: '**/*.trx'
+
+    - name: Install necessary packages
+      run: |
+        dotnet add package NUnit --version 3.13.2
+        dotnet add package ExtentReports --version 4.1.0
+        dotnet add package Selenium.WebDriver --version 4.9.1
+        dotnet add package Selenium.Support --version 4.9.1
+        dotnet add package SpecFlow --version 3.9.74
+
+    - name: Restore NuGet packages with new additions
+      run: dotnet restore
+
+    - name: Build project with new additions
+      run: dotnet build --configuration Release
+
+    - name: Run tests with new additions
+      run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test_results_new_additions.trx"
+
+    - name: Publish additional test results
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      with:
+        files: '**/*new_additions.trx'
+
