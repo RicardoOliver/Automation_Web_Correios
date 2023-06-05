@@ -1,6 +1,6 @@
 ﻿
 @correios
-Feature:: Consulta nos Correios, onde devemos inserir cep que não existe,cep que existe e rastreamento.
+Feature: Consulta nos Correios, onde devemos inserir cep que não existe,cep que existe e rastreamento.
 
 Scenario Outline: Correios
 	Given que estou no site dos Correios
